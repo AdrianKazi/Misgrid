@@ -1,11 +1,14 @@
-### NLP-Based Automated Labeling and Search System
+### End-to-End Automated NLP Tagging and Semantic Search System
 
-I developed an NLP-powered system in Misgrid that allows users to search using natural language queries like:  
-**"I look for an ML engineer with Python and C++"**  
-The model automatically detects and maps the query to available filters (e.g., roles, tools).
+In Misgrid, I designed and implemented a fully automated end-to-end system for intelligent tagging and semantic filtering powered by NLP.
 
-When adding new users, the system allows them to create new tools or professions that don't yet exist in the database. A separate model checks whether the newly added label is valid — for example, adding "C++" is accepted, while something like "flower" is rejected.
+Users can input natural language queries like:  
+**"I'm looking for an ML engineer with Python and C++"**  
+— and the system intelligently extracts relevant filters (e.g., roles, tools) using a custom language model.
 
-In the search filter list, I use cosine similarity to match user queries with relevant labels, enabling fuzzy and semantic search.
+The pipeline goes beyond static filtering:
+1. **Dynamic Label Expansion**: When users add new professions or tools during profile creation, a validation model automatically verifies whether the new label is meaningful (e.g., accepts “C++”, rejects “flower”).
+2. **Smart Query Mapping**: In the search interface, user queries are matched to existing filters using **cosine similarity** on embedded representations — enabling fuzzy, context-aware retrieval even for non-exact matches.
+3. **Self-Updating Taxonomy**: The system evolves with usage, seamlessly integrating valid new labels while maintaining control over data integrity.
 
-This results in a fully automated system for adding, validating, and searching labels using NLP and vector similarity.
+This forms a closed-loop system where **label creation, validation, search, and semantic matching are all fully automated**, creating a robust and scalable foundation for intelligent user discovery and collaboration.
